@@ -51,19 +51,17 @@ public class MainActivity extends AppCompatActivity {
                     Log.d("if paymentIntentClientSecret", paymentIntentClientSecret.toString());
 
                     paymentSheet.presentWithPaymentIntent(paymentIntentClientSecret,
-                        new PaymentSheet.Configuration("Payment Gateway", configuration));
-            }else
-
-            {
-                Toast.makeText(getApplicationContext(), "API Loading...", Toast.LENGTH_SHORT).show();
+                            new PaymentSheet.Configuration("Payment Gateway", configuration));
+                } else {
+                    Toast.makeText(getApplicationContext(), "API Loading...", Toast.LENGTH_SHORT).show();
+                }
             }
-        }
-    });
-    paymentSheet =new
+        });
+        paymentSheet = new
 
-    PaymentSheet(this,this::onPaymentSheetResult);
+                PaymentSheet(this, this::onPaymentSheetResult);
 
-}
+    }
 
     private void onPaymentSheetResult(final PaymentSheetResult paymentSheetResult) {
         if (paymentSheetResult instanceof PaymentSheetResult.Canceled) {
